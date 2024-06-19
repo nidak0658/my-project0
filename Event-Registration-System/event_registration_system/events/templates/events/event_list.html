@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event List</title>
+</head>
+<body>
+    <h1>Upcoming Events</h1>
+    {% for event in events %}
+    <div>
+        <h2>{{ event.title }}</h2>
+        <p>{{ event.description }}</p>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Location:</strong> {{ event.location }}</p>
+        <a href="{% url 'event_detail' event.id %}">View Details</a>
+    </div>
+    <hr>
+    {% empty %}
+    <p>No events found.</p>
+    {% endfor %}
+</body>
+</html>

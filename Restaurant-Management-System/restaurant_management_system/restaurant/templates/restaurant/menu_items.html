@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Items</title>
+</head>
+<body>
+    <h1>Menu Items</h1>
+    <ul>
+    {% for item in menu_items %}
+        <li>{{ item.name }} - ${{ item.price }}</li>
+        <p>{{ item.description }}</p>
+    {% empty %}
+        <li>No menu items found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

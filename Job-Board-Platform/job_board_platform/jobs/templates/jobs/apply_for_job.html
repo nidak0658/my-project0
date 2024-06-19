@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for Job</title>
+</head>
+<body>
+    <h1>Apply for {{ job.title }}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+</html>

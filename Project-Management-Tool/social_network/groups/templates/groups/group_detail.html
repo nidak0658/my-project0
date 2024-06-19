@@ -1,0 +1,31 @@
+<!-- groups/templates/groups/group_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ group.name }} Group Detail</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="group-detail">
+        <h1>{{ group.name }}</h1>
+        <p>{{ group.description }}</p>
+
+        <h2>Projects</h2>
+        <ul>
+            {% for project in group.projects.all %}
+                <li>{{ project.title }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Members</h2>
+        <ul>
+            {% for member in group.members.all %}
+                <li>{{ member.username }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

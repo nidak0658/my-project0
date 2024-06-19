@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>Reservations</h1>
+    <ul>
+    {% for reservation in reservations %}
+        <li>{{ reservation.guest_name }} - Table: {{ reservation.table.number }} - Time: {{ reservation.reservation_time }}</li>
+    {% empty %}
+        <li>No reservations found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

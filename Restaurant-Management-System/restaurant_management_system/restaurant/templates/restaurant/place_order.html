@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Order</title>
+</head>
+<body>
+    <h1>Place Order</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="items">Select Items:</label><br>
+        {% for item in menu_items %}
+        <input type="checkbox" id="item_{{ item.id }}" name="items" value="{{ item.id }}">
+        <label for="item_{{ item.id }}">{{ item.name }} - ${{ item.price }}</label><br>
+        Quantity: <input type="number" id="quantity_{{ item.id }}" name="quantity_{{ item.id }}" value="0" min="0"><br><br>
+        {% endfor %}
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>

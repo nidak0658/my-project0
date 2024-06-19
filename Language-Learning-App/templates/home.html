@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Language Learning App{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Language Learning App!</h1>
+    <p class="lead">Start your journey to learn new languages with interactive lessons and quizzes.</p>
+    <hr class="my-4">
+    <p>Track your progress, earn achievements, and join the community forum.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Get Started</a>
+</div>
+{% endblock %}

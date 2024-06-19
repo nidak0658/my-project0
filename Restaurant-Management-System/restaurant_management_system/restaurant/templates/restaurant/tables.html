@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+</head>
+<body>
+    <h1>Tables</h1>
+    <ul>
+    {% for table in tables %}
+        <li>{{ table.number }} - Capacity: {{ table.capacity }}</li>
+    {% empty %}
+        <li>No tables found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

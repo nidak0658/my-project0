@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Registrations</title>
+</head>
+<body>
+    <h1>Your Registrations</h1>
+    {% for registration in registrations %}
+    <div>
+        <h2>{{ registration.event.title }}</h2>
+        <p><strong>Date:</strong> {{ registration.event.date }}</p>
+        <p><strong>Location:</strong> {{ registration.event.location }}</p>
+        <p><strong>Registration Date:</strong> {{ registration.registration_date }}</p>
+    </div>
+    <hr>
+    {% empty %}
+    <p>You haven't registered for any events yet.</p>
+    {% endfor %}
+    <a href="{% url 'event_list' %}">Back to Event List</a>
+</body>
+</html>

@@ -1,0 +1,63 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+class User {
+private:
+    string username;
+    string password;
+
+public:
+    User() {}
+
+    User(const string& uname, const string& pwd) {
+        username = uname;
+        password = pwd;
+    }
+
+    bool registerUser() {
+        // Check if user already exists in database (file system)
+        if (userExists(username)) {
+            cout << "User already exists! Please choose a different username." << endl;
+            return false;
+        }
+
+        // Register user by creating a file with username and password
+        ofstream outfile(username + ".txt");
+        if (!outfile) {
+            cerr << "Error creating user file." << endl;
+            return false;
+        }
+
+        outfile << "Username: " << username << endl;
+        outfile << "Password: " << password << endl;
+        outfile.close();
+
+        cout << "Registration successful!" << endl;
+        return true;
+    }
+
+private:
+    bool userExists(const string& uname) {
+        ifstream infile(uname + ".txt");
+        return infile.good(); // Check if file exists
+    }
+};
+
+int main() {
+    string username, password;
+
+    cout << "=== User Registration ===" << endl;
+    cout << "Enter username: ";
+    cin >> username;
+
+    cout << "Enter password: ";
+    cin >> password;
+
+    User newUser(username, password);
+    newUser.registerUser();
+
+    return 0;
+}

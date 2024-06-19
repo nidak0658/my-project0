@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Progress{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Your Workout Progress</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Exercise</th>
+                <th scope="col">Duration (minutes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workout in workouts %}
+            <tr>
+                <td>{{ workout.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ workout.exercise }}</td>
+                <td>{{ workout.duration }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" class="text-center">No workouts logged yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

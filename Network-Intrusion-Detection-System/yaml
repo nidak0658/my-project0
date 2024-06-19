@@ -1,0 +1,18 @@
+vars:
+  # Define network interface to monitor
+  - interface: eth0
+
+outputs:
+  # Configure logging outputs (e.g., to file)
+  - fast:
+      enabled: yes
+      filename: fast.log
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+
+alert tcp any any -> any 22 (msg:"SSH brute force attack detected"; \
+    flow:to_server,established; content:"Failed password"; \
+    threshold:type threshold, track by_src, count 5, seconds 60; \
+    sid:100001; rev:1;)
